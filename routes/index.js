@@ -13,10 +13,10 @@ router.get('/', function(req, res, next) {
 
 router.get( '/db', async ( req, res ) => {
 	try{
-		const client = await pool.connect()
+		const client = await pool.connect();
 		const result = await client.query( 'SELECT * FROM instrumentos_musica' );
 		const results = { 'results': ( result ) ? result.rows: null};
-		res.render( 'db', results );
+		res.render( 'pages/db', results );
 		client.release();
 	} catch ( err ) {
 		console.error ( err );
