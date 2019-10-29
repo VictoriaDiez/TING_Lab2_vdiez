@@ -24,10 +24,10 @@ router.get( '/db', async ( req, res ) => {
 	}
 })
 
-router.get( '/db', async ( req, res ) => {
+router.get( '/db/1', async ( req, res ) => {
 	try{
 		const client = await pool.connect();
-		const result = await client.query( 'SELECT * FROM instrumentos_musica' );
+		const result = await client.query( 'SELECT * FROM instrumentos_musica where name like "guitarra clásica"' );
 		const results = { 'results': ( result ) ? result.rows: 1};
 		res.render( 'db', results );
 		client.release();
