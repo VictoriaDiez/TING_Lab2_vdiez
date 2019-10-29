@@ -10,7 +10,7 @@
 <h2>Database Results</h2>
 
 <ul>
-    <% results.forEach( r { %>
+    <% results.forEach( function(r)  { %>
         <li><%= r.name %> - <%= r.type %> - <%= r.url %></li>
     <% }); %>
 </ul>
